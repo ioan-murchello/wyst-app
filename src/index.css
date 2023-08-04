@@ -3,7 +3,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lobster+Two:regular,italic,700,700italic);
 @import url(https://fonts.googleapis.com/css?family=Kablammo:regular);
 @import url(https://fonts.googleapis.com/css?family=Fredericka+the+Great:regular);
-
+@import url(https://fonts.googleapis.com/css?family=Shantell+Sans:300,300italic);
 * {
   box-sizing: border-box;
 }
@@ -24,7 +24,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-repeat: no-repeat;
-  background: rgb(255, 255, 234);
+  background: rgb(249, 249, 228);
+  background: linear-gradient(
+    266deg,
+    rgba(249, 249, 228, 1) 87%,
+    rgba(255, 246, 215, 1) 100%
+  );
    
 }
 
@@ -89,11 +94,10 @@ code {
   grid-template-columns: 2fr 1.7fr 30px;
   list-style: none;
   padding: 7px 10px;
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px; 
   cursor: pointer;
   margin-bottom: 10px;
-  font-family: "Kalam";
+  font-family: "Kalam", 'Shantell Sans', cursive;;
   font-weight: 600;
   border-bottom: dotted #a7b1a8 5px;
 }
@@ -110,7 +114,7 @@ code {
   outline: none;
   background-color: #5c5c5c24;
   color: #4169e1;
-  font-family: "Kalam", cursive;
+  font-family: "Kalam", cursive, 'Shantell Sans', cursive;;
 }
 .predmet-title {
   font-size: 29px;
@@ -200,17 +204,22 @@ code {
 .main-btn:hover {
   background-color: #86fc8a9c;
 }
+.body-logotyp{
+  background-image: url('./WystLogo.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: transparent;
+}
 .topic {
   position: relative;
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 86%;
   color: #4169e1;
   list-style: none;
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px; 
   margin-bottom: 20px;
-  font-family: "Kalam";
+  font-family: "Kalam", 'Shantell Sans', cursive;
   background-color: #d7ffcc;
   border-radius: 12px;
   -webkit-border-radius: 12px;
@@ -220,8 +229,7 @@ code {
 }
 .topic-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  flex-direction: column; 
   margin: 15px 25px;
   width: 80%;
 }
@@ -230,13 +238,16 @@ code {
   width: 100%;
   font-size: 1.6rem;
   white-space: break-spaces;
+  word-break: break-all;
 }
 .date {
   color: #5c5c5c;
   margin-top: 15px;
   position: relative;
   font-size: 18px;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
   transform: skewX(25deg);
   -webkit-transform: skewX(25deg);
   -moz-transform: skewX(25deg);
@@ -266,6 +277,7 @@ code {
 
 .bookmark {
   position: relative;
+  display: flex;
   margin-right: 25px;
   width: 20px;
   height: 46px;
@@ -273,8 +285,7 @@ code {
   right: 0;
   background-color: lightcoral;
 }
-.triangle {
-  position: absolute;
+.triangle { 
   width: 2px;
   bottom: -2px;
   left: 0;
@@ -476,16 +487,13 @@ code {
   align-items: center;
 }
 .remove-subject {
-  z-index: 3;
+  z-index: 5;
   color: #949292;
   transition: color 0.3s ease-in;
   -webkit-transition: color 0.3s ease-in;
   -moz-transition: color 0.3s ease-in;
   -ms-transition: color 0.3s ease-in;
   -o-transition: color 0.3s ease-in;
-}
-.remove-subject:hover {
-  color: red;
 }
 
 .aside-two {
@@ -626,6 +634,12 @@ code {
   }
 }
 
+@media screen and (min-width: 601px){
+  .remove-subject:hover {
+  color: red;
+}
+
+}
 @media (max-width: 600px) {
     .remove-subject{
         width: 25px;

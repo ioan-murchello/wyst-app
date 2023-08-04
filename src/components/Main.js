@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "animate.css";
-import { BsTrash3 } from "react-icons/bs";
-import logo from '../WystLogo.png'
+import { BsTrash3 } from "react-icons/bs"; 
 
 export const Main = ({
   selectedItem,

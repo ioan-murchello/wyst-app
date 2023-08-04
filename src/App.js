@@ -3,7 +3,7 @@ import "./index.css";
 import { Main } from "./components/Main";
 import { Sidebar } from "./components/Sidebar";
 import { useState} from "react";
-import { Footer } from "./components/Footer";
+import { Footer } from "./components/Footer"; 
 
 let allSubjects = [];
 
@@ -28,6 +28,7 @@ function App() {
   const [currentItem, setCurrentItem] = useState(len());
   const [show, setShow] = useState(true);
 
+  
   const setCurrentI = (id) => {
     setCurrentItem(id);
   };
@@ -65,8 +66,7 @@ function App() {
 
   return (
     <div className="App">
-      
-      <div className="wrapper">
+      <div className={categories.length > 0 ? "wrapper" :  "wrapper body-logotyp"}>
         <Main
           className="main"
           handleRemovePredmet={handleRemovePredmet}
@@ -89,7 +89,7 @@ function App() {
           setShow={setShow}
         />
       </div>
-      
+
       <Footer year={appCreatedYear} />
     </div>
   );
