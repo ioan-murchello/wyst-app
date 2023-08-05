@@ -7,8 +7,7 @@ export const Main = ({
   categories,
   currentItem,
   setCategories,
-  handleRemovePredmet,
-  show
+  handleRemovePredmet
 }) => {
   const [inputText, setInputText] = useState("");
 

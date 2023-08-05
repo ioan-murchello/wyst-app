@@ -25,13 +25,16 @@ let appCreatedYear = "2023";
 
 function App() {
   const [categories, setCategories] = useState(allSubjects);
-  const [currentItem, setCurrentItem] = useState(len());
-  const [show, setShow] = useState(true);
+  const [currentItem, setCurrentItem] = useState(len()); 
 
   
   const setCurrentI = (id) => {
     setCurrentItem(id);
   };
+
+
+
+
 
   const handleRemovePredmet = (objIndex, predmetIndex) => {
     let updatedObjList = [...categories];
@@ -74,9 +77,7 @@ function App() {
           categories={categories}
           setCategories={setCategories}
           currentItem={currentItem}
-          setCurrentItem={setCurrentItem}
-          show={show}
-          setShow={setShow}
+          setCurrentItem={setCurrentItem} 
         />
         <Sidebar
           subjects={categories}
@@ -84,9 +85,7 @@ function App() {
           currentItem={currentItem}
           setCurrentI={setCurrentI}
           len={len}
-          handleRemoveItem={handleRemoveItem}
-          show={show}
-          setShow={setShow}
+          handleRemoveItem={handleRemoveItem} 
         />
       </div>
 

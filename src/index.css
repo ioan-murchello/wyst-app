@@ -209,6 +209,7 @@ code {
   background-repeat: no-repeat;
   background-position: center center;
   background-color: transparent;
+  background-size: 250px 250px; 
 }
 .topic {
   position: relative;
@@ -238,7 +239,7 @@ code {
   width: 100%;
   font-size: 1.6rem;
   white-space: break-spaces;
-  word-break: break-all;
+  word-break: break-word;
 }
 .date {
   color: #5c5c5c;
@@ -660,7 +661,7 @@ code {
     padding: 0 8px;
   }
   .footer-icons {
-    margin: 0 0 15px 0;
+    margin: 15px 0;
     grid-area: 1;
     padding: 0;
   }

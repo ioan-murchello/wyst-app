@@ -4,6 +4,7 @@ import { CiTrash } from "react-icons/ci";
 import appLogo from "../WystLogo.png";
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { IoMdClose } from "react-icons/io";
+import { useState } from "react";
 
 export const Sidebar = ({
   subjects,
@@ -11,31 +12,56 @@ export const Sidebar = ({
   setCategories,
   setCurrentI,
   currentItem,
-  handleRemoveItem,
-  show,
-  setShow
+  handleRemoveItem
 }) => {
-   
-  let style = "aside-one ";
-  if (show) {
-    style = "aside-one show";
-  }
-  console.log(style, "sss");
 
+
+  
+  const [initialX, setInitialX] = useState(null);
+  const [isOpen, setIsOpen] = useState(true);
+
+  const handleTouchStart = (event) => {
+    setInitialX(event.touches[0].clientX);
+  };
+
+  const handleTouchMove = (event) => {
+    if (!initialX) return;
+
+    const currentX = event.touches[0].clientX;
+    const diffX = currentX - initialX;
+
+    if (!isOpen && diffX > 0) return;
+    if (isOpen && diffX < 0) return; 
+  };
+
+  const handleTouchEnd = (event) => {
+    const currentX = event.changedTouches[0].clientX;
+    const diffX = currentX - initialX;
+    console.log(diffX)
+
+    if (isOpen && diffX > -100) {
+      setIsOpen(false);
+    } else if (!isOpen && diffX < 100) {
+      setIsOpen(true);
+    }
+
+    setInitialX(null);
+  };
+
+ 
   return (
     <>
-      <div className="burger" onClick={() => setShow((show) => !show)}>
-        {show ? <IoMdClose /> : <GiHamburgerMenu />}
+      <div className="burger" onClick={() => setIsOpen((isOpen) => !isOpen)}>
+        {isOpen ? <IoMdClose /> : <GiHamburgerMenu />}
       </div>
-      <aside className={style}>
+      <aside
+        className={`aside-one ${isOpen ? 'show':''}`}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="logo-wrapper">
           <div className="logo">
-            {/* <div className="letter-wrapper">
-            <div className="w letter">W</div>
-            <div className="y letter">Y</div>
-            <div className="l letter">S</div>
-            <div className="t letter">T</div>
-          </div> */}
             <img className="img-logo" src={appLogo} alt="Logo" />
           </div>
         </div>
@@ -87,7 +113,7 @@ export const Sidebar = ({
       </aside>
       <aside className="aside-two">
         <div className="logo-wrapper">
-          <div className="logo"> 
+          <div className="logo">
             <img className="img-logo" src={appLogo} alt="Logo" />
           </div>
         </div>
