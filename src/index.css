@@ -120,6 +120,7 @@ code {
   font-size: 29px;
   color: #3454b4;
   margin-left: 25px;
+  word-break: break-word;
 }
 .helper-text {
   display: block;
@@ -135,6 +136,8 @@ code {
 
 .date-of-created {
   display: flex;
+  justify-content: flex-end;
+  margin: 0 15px 0 0;
   align-self: end;
   font-size: 14px;
   color: #414141;

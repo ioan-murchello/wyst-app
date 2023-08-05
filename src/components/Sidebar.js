@@ -1,8 +1,7 @@
- 
 import { Input } from "./Input";
 import { CiTrash } from "react-icons/ci";
 import appLogo from "../WystLogo.png";
-import { GiHamburgerMenu } from 'react-icons/gi'
+import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
 
@@ -12,11 +11,8 @@ export const Sidebar = ({
   setCategories,
   setCurrentI,
   currentItem,
-  handleRemoveItem
+  handleRemoveItem,
 }) => {
-
-
-  
   const [initialX, setInitialX] = useState(null);
   const [isOpen, setIsOpen] = useState(true);
 
@@ -31,31 +27,30 @@ export const Sidebar = ({
     const diffX = currentX - initialX;
 
     if (!isOpen && diffX > 0) return;
-    if (isOpen && diffX < 0) return; 
+    if (isOpen && diffX < 0) return;
   };
 
   const handleTouchEnd = (event) => {
     const currentX = event.changedTouches[0].clientX;
     const diffX = currentX - initialX;
-    console.log(diffX)
+    console.log(diffX);
 
-    if (isOpen && diffX > -100) {
+    if (isOpen && diffX > 100) {
       setIsOpen(false);
-    } else if (!isOpen && diffX < 100) {
+    } else if (!isOpen && diffX > 100) {
       setIsOpen(true);
     }
 
     setInitialX(null);
   };
 
- 
   return (
     <>
       <div className="burger" onClick={() => setIsOpen((isOpen) => !isOpen)}>
         {isOpen ? <IoMdClose /> : <GiHamburgerMenu />}
       </div>
       <aside
-        className={`aside-one ${isOpen ? 'show':''}`}
+        className={`aside-one ${isOpen ? "show" : ""}`}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
